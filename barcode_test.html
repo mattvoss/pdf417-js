@@ -3,17 +3,17 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	
-	<title>PDF417 - 2D Barcode test</title>
-	       
-	<script src="bcmath-min.js" type="text/javascript"></script>
-    <script src="pdf417-min.js" type="text/javascript"></script>	    
 
-    <script>  
+    <title>PDF417 - 2D Barcode test</title>
 
-        window.onload = function() { 
+    <script src="bcmath-min.js" type="text/javascript"></script>
+    <script src="pdf417-min.js" type="text/javascript"></script>
 
-            var hub3_code = "HRVHUB30\nHRK\n" + 
+    <script>
+
+        window.onload = function() {
+
+            var hub3_code = "HRVHUB30\nHRK\n" +
                 "000000000012355\n"+
                 "ŽELJKO SENEKOVIĆ\n"+
                 "IVANEČKA ĐULICA 125\n"+
@@ -25,13 +25,13 @@
                 "HR01\n"+
                 "7269-68949637676-00019\n"+
                 "COST\n"+
-                "Troškovi za 1. mjesec\n";      
+                "Troškovi za 1. mjesec\n";
 
-        	PDF417.init(hub3_code);           	
+            PDF417.init(hub3_code);
 
             var barcode = PDF417.getBarcodeArray();
 
-            var bw = 1;
+            var bw = 2;
             var bh = 1;
 
             var canvas = document.createElement('canvas');
@@ -39,7 +39,7 @@
             canvas.height = bh * barcode['num_rows'];
             document.getElementById('barcode').appendChild(canvas);
 
-            var ctx = canvas.getContext('2d');                    
+            var ctx = canvas.getContext('2d');
 
             // print barcode elements
             var y = 0;
@@ -48,15 +48,15 @@
                 var x = 0;
                 // for each column
                 for (var c = 0; c < barcode['num_cols']; ++c) {
-                    if (barcode['bcode'][r][c] == 1) {                        
+                    if (barcode['bcode'][r][c] == 1) {
                         ctx.fillRect(x, y, bw, bh);
                     }
                     x += bw;
                 }
                 y += bh;
-            }            
+            }
         }
-    
+
     </script>
 
 </head>

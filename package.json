@@ -1,0 +1,17 @@
+{
+  "name": "pdf417",
+  "description": "Generate pdf417 barcode",
+  "version": "0.0.1",
+  "author": {
+    "name": "Matt Voss",
+    "email": "voss.matthew@gmail.com"
+  },
+  "keywords": [
+    "pdf417",
+    "barcode"
+  ],
+  "dependencies": {
+
+  },
+  "main": "pdf417.js"
+}
