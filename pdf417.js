@@ -435,7 +435,7 @@ PDF417.options = {
  * Functions from phpjs.org
  *
  */
-PDF417._array_fill = function(start_index, num, mixed_val) {
+PDF417.prototype._array_fill = function(start_index, num, mixed_val) {
   let tmp_arr = {};
 
   if (start_index == 0) {
@@ -455,7 +455,7 @@ PDF417._array_fill = function(start_index, num, mixed_val) {
   return tmp_arr;
 };
 
-PDF417._str_repeat = function(input, multiplier) {
+PDF417.prototype._str_repeat = function(input, multiplier) {
   // http://kevin.vanzonneveld.net
   // +   original by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)
   // +   improved by: Jonas Raoni Soares Silva (http://www.jsfromhell.com)
@@ -477,7 +477,7 @@ PDF417._str_repeat = function(input, multiplier) {
   return y;
 };
 
-PDF417._intval = function(mixed_let, base) {
+PDF417.prototype._intval = function(mixed_let, base) {
   // http://kevin.vanzonneveld.net
   // +   original by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)
   // +   improved by: stensi
@@ -510,7 +510,7 @@ PDF417._intval = function(mixed_let, base) {
   }
 };
 
-PDF417._sprintf = function() {
+PDF417.prototype._sprintf = function() {
   // http://kevin.vanzonneveld.net
   // +   original by: Ash Searle (http://hexmen.com/blog/)
   // + namespaced by: Michael White (http://getsprink.com)
@@ -697,7 +697,7 @@ PDF417._sprintf = function() {
   return format.replace(regex, doFormat);
 };
 
-PDF417._preg_split = function(pattern, subject, limit, flags) {
+PDF417.prototype._preg_split = function(pattern, subject, limit, flags) {
   // http://kevin.vanzonneveld.net
   // + original by: Marco Marchiò
   // * example 1: preg_split(/[\s,]+/, 'hypertext language, programming');
@@ -790,11 +790,11 @@ PDF417._preg_split = function(pattern, subject, limit, flags) {
 };
 
 
-PDF417._ord = function(string) {
+PDF417.prototype._ord = function(string) {
   return string.charCodeAt(0);
 };
 
-PDF417._array_search = function(needle, haystack, argStrict) {
+PDF417.prototype._array_search = function(needle, haystack, argStrict) {
   // http://kevin.vanzonneveld.net
   // +   original by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)
   // +      input by: Brett Zamir (http://brett-zamir.me)
@@ -836,7 +836,7 @@ PDF417._array_search = function(needle, haystack, argStrict) {
   return false;
 };
 
-PDF417._my_bcmod = function(x, y) {
+PDF417.prototype._my_bcmod = function(x, y) {
   // how many numbers to take at once? carefull not to exceed (int)
   let take = 5;
   let mod = '';
@@ -858,7 +858,7 @@ PDF417._my_bcmod = function(x, y) {
  * @param aspectratio (float) the width to height of the symbol (excluding quiet zones)
  */
 
-PDF417.barcode = function(code, ecl, aspectratio) {
+PDF417.prototype.barcode = function(code, ecl, aspectratio) {
   code = unescape(encodeURIComponent(code)); // covert UTF-8 to ISO-8859-1
   ecl = ecl || -1;
   aspectratio = aspectratio || 2;
@@ -1023,7 +1023,7 @@ PDF417.barcode = function(code, ecl, aspectratio) {
   return this.options.barcode_array;
 };
 
-PDF417.getInputSequences = function(code) {
+PDF417.prototype.getInputSequences = function(code) {
   let sequence_array = []; // array to be returned
   let numseq = [];
   // get numeric sequences
@@ -1092,7 +1092,7 @@ PDF417.getInputSequences = function(code) {
   return sequence_array;
 };
 
-PDF417.getCompaction = function(mode, code, addmode) {
+PDF417.prototype.getCompaction = function(mode, code, addmode) {
   addmode = addmode || true;
   let cw = []; // array of codewords to return
   switch(mode) {
@@ -1216,7 +1216,7 @@ PDF417.getCompaction = function(mode, code, addmode) {
   return cw;
 };
 
-PDF417.getErrorCorrectionLevel = function(ecl, numcw) {
+PDF417.prototype.getErrorCorrectionLevel = function(ecl, numcw) {
   // get maximum correction level
   let maxecl = 8; // starting error level
   let maxerrsize = (928 - numcw); // available codewords for error
@@ -1247,7 +1247,7 @@ PDF417.getErrorCorrectionLevel = function(ecl, numcw) {
   return ecl;
 };
 
-PDF417.getErrorCorrection = function(cw, ecl) {
+PDF417.prototype.getErrorCorrection = function(cw, ecl) {
   // get error correction coefficients
   let ecc = this.options.rsfactors[ecl];
   // number of error correction factors
@@ -1277,7 +1277,7 @@ PDF417.getErrorCorrection = function(cw, ecl) {
   return ecw;
 };
 
-PDF417.destroy = function() {
+PDF417.prototype.destroy = function() {
   delete bcmath;
   delete this.options;
 };
