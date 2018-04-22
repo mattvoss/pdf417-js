@@ -1,7 +1,7 @@
 {
   "name": "pdf417",
   "description": "Generate pdf417 barcode",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "author": {
     "name": "Matt Voss",
     "email": "voss.matthew@gmail.com"
