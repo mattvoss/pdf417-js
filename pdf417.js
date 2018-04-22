@@ -2,7 +2,7 @@ const bcmath = require("./bcmath");
 
 const PDF417 = function() {};
 
-PDF417.options = {
+PDF417.prototype.options = {
   ROWHEIGHT: 4,
   QUIETH: 2,
   QUIETV: 2,
