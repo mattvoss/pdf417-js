@@ -1282,4 +1282,4 @@ PDF417.prototype.destroy = function() {
   delete this.options;
 };
 
-modules.export = PDF417;
+module.exports = PDF417;
